@@ -22,6 +22,7 @@ done
 # 转储ipset文件
 sudo ipset save $V_IPSET_NAME > dist/china_cidr_ipset.txt
 
+# 去掉bucketsize尾巴(有些Linux版本不兼容)
 V_STR=$(head -n1 dist/china_cidr_ipset.txt)
 V_STR=$(echo $V_STR | sed 's/ bucketsize [0-9]* initval 0x[0-9a-f]*//')
 $(sed -i "1s/.*/$V_STR/" dist/china_cidr_ipset.txt)
