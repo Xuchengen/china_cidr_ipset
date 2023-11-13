@@ -21,3 +21,5 @@ done
 
 # 转储ipset文件
 sudo ipset save $V_IPSET_NAME > dist/china_cidr_ipset.txt
+
+echo "xxxxxxxx"
