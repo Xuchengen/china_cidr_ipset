@@ -26,11 +26,11 @@ jobs:
       run: |
         sudo ipset create CHINA:CIDR hash:net
         sudo ipset list CHINA:CIDR
-        ls -a
 
     - name: 步骤三导入中国IP段
       run: |
-        ./build.sh
+        chmod 777 build.sh
+        sudo bash build.sh
 
     - name: 步骤四导出中国IP段IPSET转储文件
       run: |
