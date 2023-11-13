@@ -1,6 +1,7 @@
 name: 生成中国IP段IPSET转储文件
 
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '0 4 */3 * *'
 
