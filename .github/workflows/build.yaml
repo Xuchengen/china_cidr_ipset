@@ -26,6 +26,7 @@ jobs:
     - name: 步骤三导入中国IP段
       run: |
         bash <<EOF
+        #!/bin/bash
         for item in $(cat CN-ip-cidr.txt); do
             sudo ipset add CHINA:CIDR $item
         done
@@ -34,6 +35,7 @@ jobs:
     - name: 步骤四导出中国IP段IPSET转储文件
       run: |
         bash <<EOF
+        #!/bin/bash
         sudo ipset save CHINA:CIDR > china_cidr_ipset.txt
         ls -a
         EOF
