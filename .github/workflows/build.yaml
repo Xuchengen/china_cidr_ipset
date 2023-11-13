@@ -19,9 +19,6 @@ jobs:
 
     - name: 构件归档到发布分支
       run: |
-          git config --local user.email "4288666+Xuchengen@users.noreply.github.com"
-          git config --local user.name "工作流机器人🤖"
-          
           git fetch
           git checkout release
         
@@ -29,8 +26,6 @@ jobs:
           
           git add china_cidr_ipset.txt
           git commit -am "更新于$(date)"
-          
-          git branch -m release
 
     - name: GitHub推送
       uses: ad-m/github-push-action@v0.6.0
