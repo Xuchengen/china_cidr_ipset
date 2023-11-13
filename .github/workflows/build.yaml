@@ -21,18 +21,19 @@ jobs:
 
     - name: 步骤二创建IPSET
       run: |
-        ipset create CHINA:CIDR hash:net
+        sudo ipset create CHINA:CIDR hash:net
 
     - name: 步骤三导入中国IP段
       run: |
         bash <<EOF
         for item in $(cat CN-ip-cidr.txt); do
-            ipset add CHINA:CIDR $item
+            sudo ipset add CHINA:CIDR $item
         done
         EOF
 
     - name: 步骤四导出中国IP段IPSET转储文件
       run: |
         bash <<EOF
-        ipset save CHINA:CIDR > china_cidr_ipset.txt
+        sudo ipset save CHINA:CIDR > china_cidr_ipset.txt
+        ls -a
         EOF
