@@ -22,6 +22,7 @@ jobs:
     - name: 步骤二创建IPSET
       run: |
         sudo ipset create CHINA:CIDR hash:net
+        sudo ipset list CHINA:CIDR
 
     - name: 步骤三导入中国IP段
       run: |
