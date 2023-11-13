@@ -19,6 +19,9 @@ jobs:
 
     - name: 构件归档到发布分支
       run: |
+          git config --local user.email "4288666+Xuchengen@users.noreply.github.com"
+          git config --local user.name "工作流机器人🤖"
+          
           git fetch
           git checkout release
         
