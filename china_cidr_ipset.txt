@@ -1,1 +1,1 @@
-create CHINA:CIDR hash:net family inet hashsize 2048 maxelem 1000000 bucketsize 12 initval 0x29cb46cc
+create CHINA:CIDR hash:net family inet hashsize 2048 maxelem 1000000 bucketsize 12 initval 0x77b58cd8
