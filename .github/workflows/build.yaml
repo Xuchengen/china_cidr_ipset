@@ -10,6 +10,9 @@ jobs:
     name: 任务
     runs-on: ubuntu-latest
     steps:
+    - name: 拉取代码
+      uses: actions/checkout@v2
+
     - name: 安装必要工具
       run: |
         sudo apt-get update
@@ -22,8 +25,8 @@ jobs:
     - name: 步骤二创建IPSET
       run: |
         sudo ipset create CHINA:CIDR hash:net
-        sudo ipset add CHINA:CIDR 192.168.1.0/24
         sudo ipset list CHINA:CIDR
+        ls -a
 
     - name: 步骤三导入中国IP段
       run: |
