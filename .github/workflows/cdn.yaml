@@ -1,0 +1,16 @@
+name: CDN网络分发
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 4 */3 * *'
+
+jobs:
+  build:
+    name: 任务
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: 激活CDN并保持活跃
+      run: |
+        echo ${{ secrets.CDN_URL }}
