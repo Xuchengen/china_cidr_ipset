@@ -15,7 +15,6 @@ jobs:
 
     - name: 执行脚本
       run: |
-        chmod 755 build.sh
         sudo bash build.sh
 
     - name: 构件归档到发布分支
