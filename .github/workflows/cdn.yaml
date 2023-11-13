@@ -13,5 +13,5 @@ jobs:
 
     - name: 激活CDN并保持活跃
       run: |
-        curl -LR -o dist/CN-ip-cidr.txt ${{ secrets.CDN_URL }}
-        ls -a
+        curl -LR -o CN-ip-cidr.txt ${{ secrets.CDN_URL }}
+        head -n20 CN-ip-cidr.txt
