@@ -28,7 +28,7 @@ jobs:
           cp -rf dist/china_cidr_ipset.txt ./
           
           git add china_cidr_ipset.txt
-          git commit -am "更新于$(date)"
+          git commit -am "更新于$(date +"%Y年%m月%d日 %H时%M分%S秒")"
 
     - name: GitHub推送
       uses: ad-m/github-push-action@v0.6.0
