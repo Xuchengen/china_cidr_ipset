@@ -25,11 +25,13 @@ jobs:
           
           git fetch
           git checkout release
-          
+        
           git checkout --orphan release-orphan
           git rm -rf .
-        
-          cp -rf china_cidr_ipset.txt ./
+          
+          ls -a
+          
+          cp -rf dist/china_cidr_ipset.txt ./
           
           git add china_cidr_ipset.txt
           git commit -am "更新于$(date)"
