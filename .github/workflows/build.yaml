@@ -22,6 +22,7 @@ jobs:
     - name: 步骤二创建IPSET
       run: |
         sudo ipset create CHINA:CIDR hash:net
+        sudo ipset add CHINA:CIDR 192.168.1.0/24
         sudo ipset list CHINA:CIDR
 
     - name: 步骤三导入中国IP段
@@ -29,7 +30,9 @@ jobs:
         bash <<EOF
         #!/bin/bash
         for item in $(cat CN-ip-cidr.txt); do
-            sudo ipset add CHINA:CIDR "$item"
+            #sudo ipset add CHINA:CIDR "$item"
+            echo $item
+            exit 0
         done
         EOF
 
