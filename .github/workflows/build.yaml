@@ -27,13 +27,7 @@ jobs:
 
     - name: 步骤三导入中国IP段
       run: |
-        bash <<EOF
-        #!/bin/bash
-        for item in $(cat CN-ip-cidr.txt); do
-            echo $item
-            exit 0
-        done
-        EOF
+        ./build.sh
 
     - name: 步骤四导出中国IP段IPSET转储文件
       run: |
