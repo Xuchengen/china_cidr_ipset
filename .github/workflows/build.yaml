@@ -10,10 +10,15 @@ jobs:
     name: 任务
     runs-on: ubuntu-latest
     steps:
+    - name: 安装必要工具
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ipset
+
     - name: 步骤一下载中国IP段
       run: |
         curl -LR -o CN-ip-cidr.txt "https://github.com/Hackl0us/GeoIP2-CN/raw/release/CN-ip-cidr.txt"
-        
+
     - name: 步骤二创建IPSET
       run: |
         ipset create CHINA:CIDR hash:net
