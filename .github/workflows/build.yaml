@@ -11,31 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 拉取代码
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: 安装必要工具
+    - name: 执行脚本
       run: |
-        sudo apt-get update
-        sudo apt-get install -y ipset
-
-    - name: 步骤一下载中国IP段
-      run: |
-        curl -LR -o CN-ip-cidr.txt "https://github.com/Hackl0us/GeoIP2-CN/raw/release/CN-ip-cidr.txt"
-
-    - name: 步骤二创建IPSET
-      run: |
-        sudo ipset create CHINA:CIDR hash:net
-        sudo ipset list CHINA:CIDR
-
-    - name: 步骤三导入中国IP段
-      run: |
-        chmod 777 build.sh
+        chmod 755 build.sh
         sudo bash build.sh
-
-    - name: 步骤四导出中国IP段IPSET转储文件
-      run: |
-        bash <<EOF
-        #!/bin/bash
-        sudo ipset save CHINA:CIDR > china_cidr_ipset.txt
-        ls -a
-        EOF
