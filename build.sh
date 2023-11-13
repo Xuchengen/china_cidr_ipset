@@ -14,3 +14,6 @@ sudo ipset create $V_IPSET_NAME hash:net hashsize 2048 maxelem 1000000
 #done
 
 sudo ipset save $V_IPSET_NAME > china_cidr_ipset.txt
+
+echo $pwd
+ls -a
