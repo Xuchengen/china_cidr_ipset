@@ -24,15 +24,14 @@ jobs:
           
           git fetch
           git checkout release
-          
-          ls -a
-          
+        
+          git rm -rf .
+        
           cp -rf dist/china_cidr_ipset.txt ./
           
           git add china_cidr_ipset.txt
           git commit -am "更新于$(date)"
           
-          git branch -D release
           git branch -m release
 
     - name: GitHub推送
