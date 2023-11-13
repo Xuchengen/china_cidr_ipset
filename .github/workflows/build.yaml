@@ -29,7 +29,7 @@ jobs:
         bash <<EOF
         #!/bin/bash
         for item in $(cat CN-ip-cidr.txt); do
-            sudo ipset add CHINA:CIDR $item
+            sudo ipset add CHINA:CIDR "$item"
         done
         EOF
 
