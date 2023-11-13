@@ -15,11 +15,9 @@ curl -LR -o dist/CN-ip-cidr.txt "https://github.com/Hackl0us/GeoIP2-CN/raw/relea
 # 创建ipset集合
 sudo ipset create $V_IPSET_NAME hash:net hashsize 2048 maxelem 1000000
 
-for item in $(cat CN-ip-cidr.txt); do
+for item in $(cat dist/CN-ip-cidr.txt); do
     sudo ipset add $V_IPSET_NAME $item
 done
 
 # 转储ipset文件
 sudo ipset save $V_IPSET_NAME > dist/china_cidr_ipset.txt
-
-echo "xxxxxxxx"
