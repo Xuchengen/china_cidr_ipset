@@ -24,9 +24,7 @@ jobs:
           
           git fetch
           git checkout release
-          
-          
-          
+
           cp -rf dist/china_cidr_ipset.txt ./
           
           git add china_cidr_ipset.txt
